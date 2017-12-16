@@ -6,6 +6,10 @@ import com.ctre.phoenix.MotorControl.ControlMode.SmartControlMode;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class RobotMap{
+		
+	public static TalonSRX Shooter1 = new TalonSRX(5);
+	public static TalonSRX Shooter2 = new TalonSRX(6);
+		
 	public static TalonSRX leftDrive1=new TalonSRX(1) ;
 	public static TalonSRX leftDrive2=new TalonSRX(2) ;
 	
@@ -27,8 +31,6 @@ public class RobotMap{
 		rightDrive1.setControlMode(SmartControlMode.kPercentVbus);
 		rightDrive2.setControlMode(SmartControlMode.kFollower);
 		rightDrive2.set(3);
-		
-		
 		
 	}
 }
