@@ -4,7 +4,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
+import org.usfirst.frc.team4130.robot.RobotMap;
+
+import com.ctre.phoenix.MotorControl.ControlMode.SmartControlMode;
+
+/**			
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
  * documentation. If you change the name of this class or the package after
@@ -20,6 +24,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		
+		
 	}
 
 	/**
@@ -45,12 +51,22 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 
 	}
+	@Override
+	public void teleopInit() {
+		
+		RobotMap.Shooter1.setControlMode(SmartControlMode.kPercentVbus);
+		RobotMap.Shooter2.setControlMode(SmartControlMode.kPercentVbus);
+		
+	}
 
 	/**
 	 * This function is called periodically during operator control
 	 */
 	@Override
 	public void teleopPeriodic() {
+		
+		RobotMap.Shooter1.set(RobotMap.gpad.getRawButton(1) ? 1 : 0);
+		RobotMap.Shooter2.set(RobotMap.gpad.getRawButton(1) ? 1 : 0);
 	}
 
 	/**
